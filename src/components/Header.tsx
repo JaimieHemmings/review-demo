@@ -1,13 +1,9 @@
-interface HeaderProps {
-  title: string
-}
+import NavBar from "./NavBar";
 
-const Header: React.FC<HeaderProps> = ({title}) => {
+export default function Header() {
   return (
-    <div className="mx-auto container">
-      <h1>{title}</h1>
-    </div>
+    <header className='top-0 z-50 max-w-7xl md:sticky md:top-4 mx-auto'>
+      <NavBar />
+    </header>
   )
 }
-
-export default Header
