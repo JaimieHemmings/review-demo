@@ -13,10 +13,14 @@ const RatingSelect: React.FC<RatingSelectProps> = ({ select }) => {
   }
 
   return (
-    <ul className="flex flex-row justify-around gap-2 rating">
+    <ul className="flex flex-row justify-around gap-2 rating py-3">
       {Array.from({ length: 10 }, (_, i) => i + 1).map((i) => (
-        <li key={i}>
+        <li
+          key={i}
+          className={`relative w-[50px] h-[50px] rounded-full flex items-center justify-center text-white text-xl drop-shadow-lg align-middle ${selected === i ? 'bg-pink-600' : 'bg-[#6488EA]'}`}
+        >
           <input
+            className={`absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] w-[50px] h-[50px] rounded-full cursor-pointer p-[10px] border-none opacity-0`}
             type="radio"
             id={`num${i}`}
             name="rating"
@@ -24,7 +28,7 @@ const RatingSelect: React.FC<RatingSelectProps> = ({ select }) => {
             onChange={handleChange}
             checked={selected === i}
           />
-          <label htmlFor={`num${i}`}>{i}</label>
+          <label className="font-bold" htmlFor={`num${i}`}>{i}</label>
         </li>
       ))}
     </ul>
