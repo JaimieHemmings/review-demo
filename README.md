@@ -1,5 +1,7 @@
 # React Feedback App
 
+![Preview Image](preview.jpg)
+
 [Live Site](https://review-demo-jh.netlify.app/)
 
 ## Overview
