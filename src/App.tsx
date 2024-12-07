@@ -4,7 +4,6 @@ import Heading from "./components/Heading"
 import Header from "./components/Header"
 import FeedbackData from './data/FeedbackData'
 import FeedbackList from './components/FeedbackList'
-import FeedbackStats from './components/FeedbackStats'
 import FeedbackForm from './components/FeedbackForm'
 
 import { FeedbackType } from './types/types'
@@ -12,6 +11,10 @@ import { FeedbackType } from './types/types'
 function App() {
 
   const [feedback, setFeedBack] = useState<FeedbackType[]>(FeedbackData)
+
+  const addFeedback = (newFeedback: FeedbackType) => {
+    setFeedBack([...feedback, newFeedback])
+  }
 
   const deleteFeedback = (id: number) => {
     if (window.confirm('Are you sure you want to delete this feedback?')) {
@@ -27,8 +30,7 @@ function App() {
         Feedback UI
       </Heading>
 
-      <FeedbackForm />
-      <FeedbackStats feedback={ feedback } />
+      <FeedbackForm handleAdd={addFeedback} />
       <FeedbackList feedback={ feedback } handleDelete={ deleteFeedback } />
 
     </Bounded>

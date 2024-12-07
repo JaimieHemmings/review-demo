@@ -10,7 +10,7 @@ interface FeedbackItemProps {
 const FeedbackItem: React.FC<FeedbackItemProps> = ({ item, handleDelete }) => {
   return (
     <Card>
-      <div className="card relative">
+      <div className="card relative" data-key={item.id}>
         <div className="num-display absolute top-0 left-0 translate-x-[-25%] translate-y-[-25%] p-2 bg-[#4169e1] rounded-full text-xl text-white flex items-center justify-center">
           { item.rating }
         </div>
