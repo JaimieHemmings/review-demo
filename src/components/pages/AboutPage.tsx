@@ -10,6 +10,7 @@ const AboutPage = () => {
       <p>
       This is a React-based feedback application built to practice React, TypeScript, Tailwind CSS, and Framer Motion skills. The app allows users to view, add, and delete ratings, providing a simple yet interactive user experience.
       </p>
+      
       <h2>Features</h2>
       <ul className="marker:text-white">
         <li className="m-0">View ratings</li>
@@ -18,6 +19,7 @@ const AboutPage = () => {
         <li className="m-0">Smooth animations with Framer Motion</li>
         <li className="m-0">Responsive design with Tailwind CSS</li>
       </ul>
+
       <h2>State Management</h2>
       <p>The app uses React's `useState` hook for managing the ratings state, demonstrating basic state management in React with TypeScript.</p>
 
