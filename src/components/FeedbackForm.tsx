@@ -49,6 +49,7 @@ const FeedbackForm: React.FC<FeedbackFormProps> = ({ handleAdd }) => {
     handleAdd(newFeedback)
 
     setFeedbackText('')
+    setBtnDisabled(true)
   }
 
   return (
