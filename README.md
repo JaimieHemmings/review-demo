@@ -1,5 +1,7 @@
 # React Feedback App
 
+[Live Site](https://review-demo-jh.netlify.app/)
+
 ## Overview
 
 This is a React-based feedback application built to practice React, TypeScript, Tailwind CSS, and Framer Motion skills. The app allows users to view, add, and delete ratings, providing a simple yet interactive user experience.
