@@ -2,8 +2,6 @@
 
 ![Preview Image](preview.jpg)
 
-[Live Site](https://review-demo-jh.netlify.app/)
-
 ## Overview
 
 This is a React-based feedback application built to practice React, TypeScript, Tailwind CSS, and Framer Motion skills. The app allows users to view, add, and delete ratings, providing a simple yet interactive user experience.
@@ -50,7 +48,7 @@ Before you begin, ensure you have the following installed:
 
 To run the application in development mode:
 ```bash
-npm run dev
+npm run conc
 ```
 
 Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
