@@ -4,6 +4,7 @@ import FeedbackItem from "./FeedbackItem"
 import FeedbackStats from "./FeedbackStats"
 import FeedbackContext from '../context/FeedbackContext'
 import { FeedbackType } from '../types/types'
+import Spinner from './shared/Spinner'
 
 const FeedbackList: React.FC = () => {
   const feedbackContext = useContext(FeedbackContext)
@@ -12,13 +13,13 @@ const FeedbackList: React.FC = () => {
     return <p className="text-white text-xl font-bold">No feedback context available</p>
   }
 
-  const { feedback } = feedbackContext
+  const { feedback, isLoading } = feedbackContext
 
-  if (!feedback || feedback.length === 0) {
+  if (!isLoading && (!feedback || feedback.length === 0)) {
     return <p className="text-white text-xl font-bold">No feedback yet</p>
   }
 
-  return (
+  return isLoading ? <Spinner /> : (
     <div className="feedback-list my-6 bg-[#4169e1] p-5 rounded-lg">
       <FeedbackStats />
       <AnimatePresence initial={false} mode="popLayout">
