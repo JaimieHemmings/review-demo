@@ -1,20 +1,27 @@
-import { useState } from "react"
+import { useState, useContext, useEffect } from "react"
 import Card from "./shared/Card"
 import Heading from "./Heading"
 import Button from "./Button"
 import RatingSelect from "./RatingSelect"
 import { FeedbackType } from "../types/types"
+import FeedbackContext from "../context/FeedbackContext"
 
-interface FeedbackFormProps {
-  handleAdd: (newFeedback: FeedbackType) => void
-}
-
-const FeedbackForm: React.FC<FeedbackFormProps> = ({ handleAdd }) => {
+const FeedbackForm: React.FC = () => {
 
   const [feedbackText, setFeedbackText] = useState('')
   const [feedbackRating, setFeedbackRating] = useState(10)
   const [btnDisabled, setBtnDisabled] = useState(true)
   const [errorMessage, setErrorMessage] = useState('')
+
+  const{ addFeedback, feedbackEdit, updateFeedback }: any = useContext(FeedbackContext)
+
+  useEffect(() => {
+    if (feedbackEdit.edit) {
+      setBtnDisabled(false)
+      setFeedbackText(feedbackEdit.item.text)
+      setFeedbackRating(feedbackEdit.item.rating)
+    }
+  }, [feedbackEdit])
 
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
@@ -46,7 +53,11 @@ const FeedbackForm: React.FC<FeedbackFormProps> = ({ handleAdd }) => {
       text: feedbackText,
     }
 
-    handleAdd(newFeedback)
+    feedbackEdit.edit ? (
+      updateFeedback(feedbackEdit.item.id, newFeedback)
+    ) : (
+      addFeedback(newFeedback)
+    )
 
     setFeedbackText('')
     setBtnDisabled(true)

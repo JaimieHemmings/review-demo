@@ -1,11 +1,17 @@
 import Heading from "./Heading"
-import { FeedbackType } from "../types/types"
+import { useContext } from 'react'
+import FeedbackContext from '../context/FeedbackContext'
 
-interface FeedbackStatsProps {
-  feedback: FeedbackType[]
-}
+const FeedbackStats: React.FC = () => {
 
-const FeedbackStats: React.FC<FeedbackStatsProps> = ({ feedback }) => {
+  const feedbackContext = useContext(FeedbackContext)
+
+  if (!feedbackContext) {
+    return <p className="text-white text-xl font-bold">No feedback context available</p>
+  }
+
+  const { feedback } = feedbackContext
+
   // Calculate the average rating
   let averageRating = feedback.reduce((acc, cur) => acc + cur.rating, 0) / feedback.length
   const fixedAverageRating = averageRating.toFixed(1).replace(/\.0$/, '')

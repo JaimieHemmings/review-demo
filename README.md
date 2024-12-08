@@ -84,7 +84,7 @@ feedback-app/
 
 ## State Management
 
-The app uses React's `useState` hook for managing the ratings state, demonstrating basic state management in React with TypeScript.
+The app uses React's `useState`, `useEffect` and `useContext` hook for managing the ratings state, demonstrating basic state management in React with TypeScript.
 
 ## Styling
 
@@ -107,6 +107,5 @@ This project was created to practice:
 ## Future Improvements
 
 - Add persistent storage (localStorage/backend)
-- Implement rating editing
 - Add more robust form validation
 - Create unit and integration tests
